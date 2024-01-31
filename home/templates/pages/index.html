@@ -1,0 +1,35 @@
+
+{% extends 'master.html' %}
+
+
+{% block content %}
+        
+
+    <h1>Hi, Welcome to Django app </h1>
+
+    {{data}}
+
+    <table>
+        <tr>
+            <th>S.NO</th>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{forloop.counter}} </td>
+            <td>{{row.name}}</td>
+            <td>{{row.age}}</td>
+            <td>
+                {% if row.age  >= 21 %}
+                    Pass
+                 {% else  %}
+                  Failed
+                 {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    {% endblock content %}
